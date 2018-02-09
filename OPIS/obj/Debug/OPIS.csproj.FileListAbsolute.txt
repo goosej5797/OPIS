@@ -1,0 +1,9 @@
+c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\obj\Debug\OPIS.csprojResolveAssemblyReference.cache
+c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\obj\Debug\OPIS.Properties.Resources.resources
+c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\obj\Debug\OPIS.csproj.GenerateResource.Cache
+c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\obj\Debug\OPIS.csproj.CoreCompileInputs.cache
+c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\bin\Debug\OPIS.exe.config
+c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\bin\Debug\OPIS.exe
+c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\bin\Debug\OPIS.pdb
+c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\obj\Debug\OPIS.exe
+c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\obj\Debug\OPIS.pdb
