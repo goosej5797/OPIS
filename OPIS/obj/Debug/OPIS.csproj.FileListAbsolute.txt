@@ -7,3 +7,6 @@ c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\bin\Debug\OPIS
 c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\bin\Debug\OPIS.pdb
 c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\obj\Debug\OPIS.exe
 c:\users\goose1jd\documents\visual studio 2017\Projects\OPIS\OPIS\obj\Debug\OPIS.pdb
+C:\Users\goose1jd\Documents\Visual Studio 2017\Projects\OPIS\OPIS\bin\Debug\Database.mdf
+C:\Users\goose1jd\Documents\Visual Studio 2017\Projects\OPIS\OPIS\bin\Debug\Database_log.ldf
+C:\Users\goose1jd\Documents\Visual Studio 2017\Projects\OPIS\OPIS\obj\Debug\OPIS.Form1.resources

@@ -11,12 +11,14 @@ namespace OPIS
         public string name { get; }
         private string itemNumber { get; }
         private double price { get; }
+        private int quantity { get; }
 
-        public Product(string name, string itemNumber, double price)
+        public Product(string name, string itemNumber, double price, int quantity)
         {
             this.name = name;
             this.itemNumber = itemNumber;
             this.price = price;
+            this.quantity = quantity;
         }
 
 
