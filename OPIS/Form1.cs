@@ -35,7 +35,7 @@ namespace OPIS
         {
             Payment1 payment = new Payment1(o);
             
-            // Show the settings form
+            // Show the payment form
             payment.Show();
         }
 

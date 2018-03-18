@@ -8,10 +8,10 @@ namespace OPIS
 {
     public class Order
     {
-        private string orderNumber;
-        private double subtotal;
-        private double total;
-        private double tax;
+        public string orderNumber { get; set; }
+        public double subtotal { get; set; }
+        public double total { get; set; }
+        public double tax { get; set; }
         private const double TAXAMT = 0.06;
         private List<Product> orderProducts;
         private Catalog inventory;
@@ -22,6 +22,7 @@ namespace OPIS
             subtotal = 0.0;
             total = 0.0;
             tax = 0.0;
+            orderNumber = "1000";
         }
 
         public void addItem(Product item)
