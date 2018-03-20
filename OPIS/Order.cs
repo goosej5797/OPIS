@@ -80,6 +80,8 @@ namespace OPIS
         public void setTotals()
         {
             subtotal = 0; //reset subtotal to 0.00
+            tax = 0;
+            total = 0;
 
             foreach(Product p in orderProducts)
             {
