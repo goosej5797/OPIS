@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace OPIS
 {
+    /*
+    * Class: Order
+    * @purpose: The Order class is used to create and interact with objects 
+    *           that represent a particular order. Orders contain a list of 
+    *           Products to be purchased, as well as totals.
+    */
     public class Order
     {
         public string orderNumber { get; set; }
@@ -13,9 +19,13 @@ namespace OPIS
         public double total { get; set; }
         public double tax { get; set; }
         private const double TAXAMT = 0.06;
-        private List<Product> orderProducts;
-        private Catalog inventory;
+        private List<Product> orderProducts; //List of Products to be purchased
 
+        /*
+         * @method: Order()
+         * @purpose: Order constructor. Initializes all values--(re)sets totals to 0.00
+         *           and sets orderNumber to DISTINCT value.
+         */
         public Order()
         {
             orderProducts = new List<Product>();
@@ -25,12 +35,19 @@ namespace OPIS
             orderNumber = "1000";
         }
 
+        /*
+         * @method: addItem()
+         * @param: item -> Product to be added to the Order
+         * @purpose: Add a Product to the Order
+         */
         public void addItem(Product item)
         {
+            //if the Order doesn't contain the Product already, add the item
             if (!orderProducts.Contains(item))
             {
                 orderProducts.Add(item);
             }
+            //if the Order does contain the Product already, increase the orderQty
             else
             {
                 item.orderQuantity++;
@@ -38,6 +55,11 @@ namespace OPIS
 
         }
 
+        /*
+         * @method: removeItem()
+         * @param: item -> Product to be removed from the Order
+         * @purpose: Removes the specified Product from the Order
+         */
         public void removeItem(Product item)
         {
             for (int x = 0; x < orderProducts.Count; x++)
@@ -45,14 +67,19 @@ namespace OPIS
                 if (orderProducts[x].name == item.name)
                 {
                     orderProducts.RemoveAt(x);
-                    item.orderQuantity = 1;
+                    item.orderQuantity = 1; //reset orderQuantity to 1
                 }
             }
         }
 
+        /*
+         * @method: setTotals()
+         * @purpose: Updates the subtotal, tax, and total variables
+         *           according to the current state of the order
+         */
         public void setTotals()
         {
-            subtotal = 0;
+            subtotal = 0; //reset subtotal to 0.00
 
             foreach(Product p in orderProducts)
             {
@@ -63,21 +90,10 @@ namespace OPIS
 
         }
 
-        public double getSubtotal()
-        {
-            return subtotal;
-        }
-
-        public double getTax()
-        {
-            return tax;
-        }
-
-        public double getTotal()
-        {
-            return total;
-        }
-
+        /*
+         * @method: getEntireOrder()
+         * @purpose: Returns the Order's list of items to be purchased 
+         */
         public List<Product> getEntireOrder()
         {
             return orderProducts;

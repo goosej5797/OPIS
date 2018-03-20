@@ -10,10 +10,22 @@ using System.Windows.Forms;
 
 namespace OPIS
 {
+    /*
+    * Form: Invoice1
+    * @purpose: The third window that will appear when the payment has been
+    *           processed. This form will show an invoice of the customer's
+    *           order, update the database with the transaction info, and
+    *           allow a user to begin a new Order.
+    */
     public partial class Invoice1 : Form
     {
         Order o;
 
+        /*
+         * @method: Invoice1()
+         * @param: o -> Order transferred from Payment1
+         * @purpose: instantiate the customer's Order, initializes form
+         */
         public Invoice1(Order o)
         {
             InitializeComponent();
@@ -29,15 +41,25 @@ namespace OPIS
             updateListView();
         }
 
+        /*
+         * @method: updateTotals()
+         * @purpose: updates the Order's totals and displays them on the User Interface
+         */
         public void updateTotals()
         {
             o.setTotals();
 
-            label6.Text = "$" + Convert.ToString(o.getSubtotal());
-            label7.Text = "$" + Convert.ToString(o.getTax());
-            label8.Text = "$" + Convert.ToString(o.getTotal());
+            label6.Text = "$" + Convert.ToString(o.subtotal);
+            label7.Text = "$" + Convert.ToString(o.tax);
+            label8.Text = "$" + Convert.ToString(o.total);
         }
 
+        /*
+         * @method: updateListView()
+         * @purpose: refreshes the ListView to show an updated version
+         *           of the customer's order that accurrately displays
+         *           what the customer purchased to purchase.
+         */
         public void updateListView()
         {
             listView1.Items.Clear();

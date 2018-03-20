@@ -10,9 +10,21 @@ using System.Windows.Forms;
 
 namespace OPIS
 {
+    /*
+    * Form: Payment1
+    * @purpose: The second window that will appear when the customer is
+    *           ready to checkout. This form will facilitate payment by
+    *           either cash or card.
+    */
     public partial class Payment1 : Form
     {
         public Order o;
+
+        /*
+         * @method: Payment1()
+         * @param: o -> Order transferred from Form1
+         * @purpose: instantiate the customer's Order
+         */
         public Payment1(Order o)
         {
             this.o = o;
@@ -24,15 +36,23 @@ namespace OPIS
             updateTotals();
         }
 
+        /*
+         * @method: updateTotals()
+         * @purpose: updates the Order's totals and displays them on the User Interface
+         */
         public void updateTotals()
         {
             o.setTotals();
 
-            subAmt.Text = "$" + Convert.ToString(o.getSubtotal());
-            taxAmt.Text = "$" + Convert.ToString(o.getTax());
-            ttl.Text = "$" + Convert.ToString(o.getTotal());
+            subAmt.Text = "$" + Convert.ToString(o.subtotal);
+            taxAmt.Text = "$" + Convert.ToString(o.tax);
+            ttl.Text = "$" + Convert.ToString(o.total);
         }
 
+        /*
+         * @button1: "Credit/Debit"
+         * @purpose: set up the User Interface for payment by card
+         */
         private void button1_Click(object sender, EventArgs e)
         {
             button2.Visible = false;
@@ -42,6 +62,10 @@ namespace OPIS
             Submit.Visible = true;
         }
 
+        /*
+         * @button1: "Cash"
+         * @purpose: set up the User Interface for payment by cash
+         */
         private void button2_Click(object sender, EventArgs e)
         {
             button1.Visible = false;
@@ -56,17 +80,23 @@ namespace OPIS
 
         }
 
+        /*
+         * @Button: "Submit"
+         * @purpose: facilitate payment by card or cash, ensuring that
+         *           payment is valid for either method.
+         */
         private void Submit_Click(object sender, EventArgs e)
         {
             string input = textBox1.Text;
-            //Console.WriteLine(input);
 
+            //if payment by card
             if(label1.Text.Equals("Enter Card Number:"))
             {
                 try
                 {
-                    long tender = Convert.ToInt64(input);
+                    long tender = Convert.ToInt64(input); //convert input to long...if exception thrown, invalid card entered!
 
+                    //ensures card number is of length 16
                     if (input.Length == 16)
                     {
                         Error.Visible = false;
@@ -82,22 +112,25 @@ namespace OPIS
                 }
                 catch
                 {
+                    //if invalid card number entered, error displayed on user interface
                     Error.Text = "****Invalid Card Entered!";
                     Error.Visible = true;
                 }
             }
+            //if payment by cash
             else
             {
                 try
                 {
-                    double tender = Convert.ToDouble(input);
+                    double tender = Convert.ToDouble(input); //convert input to double
 
-                    if (tender >= o.getTotal())
+                    //ensures that tender given is greater than or equal to order total
+                    if (tender >= o.total)
                     {
                         Error.Visible = false;
                         label6.Visible = true;
                         chngDue.Visible = true;
-                        chngDue.Text = "$" + (tender - o.getTotal());
+                        chngDue.Text = "$" + (tender - o.total);
 
                         Submit.Visible = false;
                         button1.Enabled = false;
@@ -106,12 +139,14 @@ namespace OPIS
                     }
                     else
                     {
+                        //if tender given is less than order total, error displayed on user interface
                         Error.Text = "***Invalid Tender Entered!";
                         Error.Visible = true;
                     }
                 }
                 catch
                 {
+                    //if invalid cash amount entered, error displayed on user interface
                     Error.Text = "***Invalid Tender Entered!";
                     Error.Visible = true;
                 }
@@ -120,6 +155,10 @@ namespace OPIS
 
         }
 
+        /*
+         * @button = "Invoice"
+         * @purpose: open the Invoice User Interface
+         */
         private void Invoice_Click(object sender, EventArgs e)
         {
             Invoice1 invoice = new Invoice1(o);
