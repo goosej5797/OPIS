@@ -192,8 +192,9 @@ namespace OPIS
                 Product p = c.getProduct(pName);
                 o.removeItem(p);
 
-                updateListView();
                 updateTotal();
+                updateListView();
+                
             }
             catch
             {
@@ -219,8 +220,9 @@ namespace OPIS
                     o.removeItem(p);
                 }
 
-                updateListView();
                 updateTotal();
+                updateListView();
+                
             }
             catch
             {
