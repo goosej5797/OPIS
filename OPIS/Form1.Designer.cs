@@ -42,6 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.ErrorMsg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -85,12 +86,12 @@
             // Price
             // 
             this.Price.Text = "Price";
-            this.Price.Width = 100;
+            this.Price.Width = 70;
             // 
             // Quantity
             // 
             this.Quantity.Text = "Quantity";
-            this.Quantity.Width = 100;
+            this.Quantity.Width = 80;
             // 
             // flowLayoutPanel1
             // 
@@ -192,11 +193,24 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // ErrorMsg
+            // 
+            this.ErrorMsg.AutoSize = true;
+            this.ErrorMsg.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorMsg.ForeColor = System.Drawing.Color.Red;
+            this.ErrorMsg.Location = new System.Drawing.Point(20, 471);
+            this.ErrorMsg.Name = "ErrorMsg";
+            this.ErrorMsg.Size = new System.Drawing.Size(53, 22);
+            this.ErrorMsg.TabIndex = 11;
+            this.ErrorMsg.Text = "Error";
+            this.ErrorMsg.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1042, 530);
+            this.Controls.Add(this.ErrorMsg);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label6);
@@ -232,6 +246,7 @@
         private System.Windows.Forms.ColumnHeader Product;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label ErrorMsg;
     }
 }
 

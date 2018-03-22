@@ -14,12 +14,17 @@ namespace OPIS
     */
     public class Order
     {
-        public string orderNumber { get; set; }
+        public static string orderNumber { get; set; }
         public double subtotal { get; set; }
         public double total { get; set; }
         public double tax { get; set; }
         private const double TAXAMT = 0.06;
         private List<Product> orderProducts; //List of Products to be purchased
+
+        static Order()
+        {
+            orderNumber = "999";
+        }
 
         /*
          * @method: Order()
@@ -32,7 +37,9 @@ namespace OPIS
             subtotal = 0.0;
             total = 0.0;
             tax = 0.0;
-            orderNumber = "1000";
+            int num = Convert.ToInt32(orderNumber);
+            num++;
+            orderNumber = Convert.ToString(num);
         }
 
         /*
@@ -40,18 +47,29 @@ namespace OPIS
          * @param: item -> Product to be added to the Order
          * @purpose: Add a Product to the Order
          */
-        public void addItem(Product item)
+        public bool addItem(Product item)
         {
-            //if the Order doesn't contain the Product already, add the item
-            if (!orderProducts.Contains(item))
+            if(item.orderQuantity + 1 <= item.stockQuantity)
             {
-                orderProducts.Add(item);
+                //if the Order doesn't contain the Product already, add the item
+                if (!orderProducts.Contains(item))
+                {
+                    item.orderQuantity++;
+                    orderProducts.Add(item);
+                }
+                //if the Order does contain the Product already, increase the orderQty
+                else
+                {
+                    item.orderQuantity++;
+                }
+
+                return true;
             }
-            //if the Order does contain the Product already, increase the orderQty
             else
             {
-                item.orderQuantity++;
+                return false;
             }
+
 
         }
 

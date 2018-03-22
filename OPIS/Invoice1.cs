@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,18 +21,20 @@ namespace OPIS
     public partial class Invoice1 : Form
     {
         Order o;
+        Form1 start;
 
         /*
          * @method: Invoice1()
          * @param: o -> Order transferred from Payment1
          * @purpose: instantiate the customer's Order, initializes form
          */
-        public Invoice1(Order o)
+        public Invoice1(Order o, Form1 f)
         {
             InitializeComponent();
             this.o = o;
+            this.start = f;
 
-            ordrNum.Text = o.orderNumber;
+            ordrNum.Text = Order.orderNumber;
             listView1.View = View.Details;
         }
 
@@ -73,7 +76,17 @@ namespace OPIS
                 i.SubItems.Add(Convert.ToString(p.orderQuantity));
                 listView1.Items.Add(i);
             }
+        }
 
+        //NEW TRANSACTION
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //UPDATE DATABASE WITH NEW QUANTITIES
+
+            start.ResetForm();
+            start.Show();
+
+            this.Close();
         }
     }
 }

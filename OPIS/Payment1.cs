@@ -19,15 +19,17 @@ namespace OPIS
     public partial class Payment1 : Form
     {
         public Order o;
+        public Form1 start;
 
         /*
          * @method: Payment1()
          * @param: o -> Order transferred from Form1
          * @purpose: instantiate the customer's Order
          */
-        public Payment1(Order o)
+        public Payment1(Order o, Form1 f)
         {
             this.o = o;
+            start = f;
             InitializeComponent();
         }
 
@@ -161,10 +163,11 @@ namespace OPIS
          */
         private void Invoice_Click(object sender, EventArgs e)
         {
-            Invoice1 invoice = new Invoice1(o);
+            Invoice1 invoice = new Invoice1(o, start);
 
             // Show the invoice form
             invoice.Show();
+            this.Close();
         }
     }
 }

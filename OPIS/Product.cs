@@ -29,7 +29,7 @@ namespace OPIS
             this.itemNumber = itemNumber;
             this.price = price;
             this.stockQuantity = quantity;
-            this.orderQuantity = 1;
+            this.orderQuantity = 0;
         }
 
         /*

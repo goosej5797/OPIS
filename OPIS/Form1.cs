@@ -47,16 +47,35 @@ namespace OPIS
 
         }
 
+        public void ResetForm()
+        {
+            o = new Order(); //instantiate a new Order
+            c = new Catalog(); //instantiate an updated Catalog
+
+            //Clear Panel, Labels, & Listview
+            flowLayoutPanel1.Controls.Clear();
+            updateTotal(); //Clear labels
+            ErrorMsg.Visible = false;
+            updateListView();
+            listView1.View = View.Details;
+
+            generateButtons(); //instantiate the GUI
+
+        }
+
         /*
          * Button1 = Checkout Button
          * @purpose: open the Payment User Interface
          */
         private void button1_Click(object sender, EventArgs e)
         {
-            Payment1 payment = new Payment1(o);
-            
+            Payment1 payment = new Payment1(o, this);
+
             // Show the payment form
             payment.Show();
+
+            // Hide the current form
+            this.Hide();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,7 +101,7 @@ namespace OPIS
         public void generateButtons()
         {
             List<Product> products = c.getAllProducts();
-            foreach(Product p in products)
+            foreach (Product p in products)
             {
                 Button b = new Button();
                 b.Text = p.name;
@@ -102,10 +121,19 @@ namespace OPIS
          */
         public void btn_action(object sender, EventArgs e)
         {
+            // Hide error message label
+            ErrorMsg.Visible = false;
+
             Button btn = (Button)sender;
 
             Product p = c.getProduct(btn.Name);
-            o.addItem(p);
+
+            if (o.addItem(p) == false)
+            {
+                ErrorMsg.Text = p.name + " is out of stock!";
+                ErrorMsg.Visible = true;
+            }
+            
 
             updateListView();
 
@@ -124,14 +152,13 @@ namespace OPIS
 
             List<Product> products = o.getEntireOrder();
 
-            foreach(Product p in products)
+            foreach (Product p in products)
             {
                 ListViewItem i = new ListViewItem(p.name);
                 i.SubItems.Add(Convert.ToString(p.price));
                 i.SubItems.Add(Convert.ToString(p.orderQuantity));
                 listView1.Items.Add(i);
             }
-
         }
 
         /*
@@ -149,7 +176,7 @@ namespace OPIS
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         /*
@@ -170,7 +197,7 @@ namespace OPIS
             }
             catch
             {
-                
+
             }
 
         }
