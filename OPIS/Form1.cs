@@ -34,7 +34,6 @@ namespace OPIS
         public Form1()
         {
             InitializeComponent();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -44,7 +43,6 @@ namespace OPIS
             generateButtons(); //instantiate the GUI
 
             listView1.View = View.Details;
-
         }
 
         public void ResetForm()
@@ -54,9 +52,9 @@ namespace OPIS
 
             //Clear Panel, Labels, & Listview
             flowLayoutPanel1.Controls.Clear();
-            updateTotal(); //Clear labels
+            UpdateTotal(); //Clear labels
             ErrorMsg.Visible = false;
-            updateListView();
+            UpdateListView();
             listView1.View = View.Details;
 
             generateButtons(); //instantiate the GUI
@@ -69,7 +67,7 @@ namespace OPIS
          */
         private void button1_Click(object sender, EventArgs e)
         {
-            Payment1 payment = new Payment1(o, this);
+            Payment1 payment = new Payment1(o, c, this);
 
             // Show the payment form
             payment.Show();
@@ -107,7 +105,7 @@ namespace OPIS
                 b.Text = p.name;
                 b.Name = p.name;
                 b.Size = new System.Drawing.Size(94, 76);
-                b.Click += btn_action; //Adds event handler
+                b.Click += Btn_action; //Adds event handler
                 flowLayoutPanel1.Controls.Add(b);
             }
         }
@@ -119,13 +117,12 @@ namespace OPIS
          *           customer's order. Then, the ListView and Totals
          *           will be updated.
          */
-        public void btn_action(object sender, EventArgs e)
+        public void Btn_action(object sender, EventArgs e)
         {
             // Hide error message label
             ErrorMsg.Visible = false;
 
             Button btn = (Button)sender;
-
             Product p = c.getProduct(btn.Name);
 
             if (o.addItem(p) == false)
@@ -133,11 +130,9 @@ namespace OPIS
                 ErrorMsg.Text = p.name + " is out of stock!";
                 ErrorMsg.Visible = true;
             }
-            
 
-            updateListView();
-
-            updateTotal();
+            UpdateListView();
+            UpdateTotal();
         }
 
         /*
@@ -146,7 +141,7 @@ namespace OPIS
          *           of the customer's order that accurrately displays
          *           what the customer intends to purchase.
          */
-        public void updateListView()
+        public void UpdateListView()
         {
             listView1.Items.Clear(); //Clear the ListView of past items
 
@@ -155,7 +150,7 @@ namespace OPIS
             foreach (Product p in products)
             {
                 ListViewItem i = new ListViewItem(p.name);
-                i.SubItems.Add(Convert.ToString(p.price));
+                i.SubItems.Add(p.price.ToString("F"));
                 i.SubItems.Add(Convert.ToString(p.orderQuantity));
                 listView1.Items.Add(i);
             }
@@ -165,13 +160,13 @@ namespace OPIS
          * @method: updateTotal()
          * @purpose: updates the Order's totals and displays them on the User Interface
          */
-        public void updateTotal()
+        public void UpdateTotal()
         {
             o.setTotals();
 
-            label2.Text = "$" + Convert.ToString(o.subtotal);
-            label5.Text = "$" + Convert.ToString(o.tax);
-            label4.Text = "$" + Convert.ToString(o.total);
+            label2.Text = "$" + o.subtotal.ToString("F");
+            label5.Text = "$" + o.tax.ToString("F");
+            label4.Text = "$" + o.total.ToString("F");
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -192,15 +187,13 @@ namespace OPIS
                 Product p = c.getProduct(pName);
                 o.removeItem(p);
 
-                updateTotal();
-                updateListView();
-                
+                UpdateTotal();
+                UpdateListView();
             }
             catch
             {
 
             }
-
         }
 
         /*
@@ -213,22 +206,16 @@ namespace OPIS
             {
                 String pName = listView1.SelectedItems[0].SubItems[0].Text;
                 Product p = c.getProduct(pName);
-                p.orderQuantity--;
-                //if orderQuantity becomes ZERO, remove item from Order
-                if (p.orderQuantity == 0)
-                {
-                    o.removeItem(p);
-                }
 
-                updateTotal();
-                updateListView();
-                
+                o.decreaseQuantity(p);
+
+                UpdateTotal();
+                UpdateListView(); 
             }
             catch
             {
 
             }
-
         }
     }
 }

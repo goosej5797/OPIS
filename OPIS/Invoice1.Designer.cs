@@ -75,9 +75,8 @@
             this.label8.Location = new System.Drawing.Point(696, 227);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 27);
+            this.label8.Size = new System.Drawing.Size(0, 27);
             this.label8.TabIndex = 21;
-            this.label8.Text = "$$$$$";
             // 
             // label7
             // 
@@ -86,9 +85,8 @@
             this.label7.Location = new System.Drawing.Point(696, 191);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 27);
+            this.label7.Size = new System.Drawing.Size(0, 27);
             this.label7.TabIndex = 20;
-            this.label7.Text = "$$$$$";
             // 
             // label6
             // 
@@ -97,9 +95,8 @@
             this.label6.Location = new System.Drawing.Point(696, 152);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 27);
+            this.label6.Size = new System.Drawing.Size(0, 27);
             this.label6.TabIndex = 19;
-            this.label6.Text = "$$$$$";
             // 
             // label5
             // 
@@ -141,9 +138,8 @@
             this.ordrNum.Location = new System.Drawing.Point(255, 91);
             this.ordrNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ordrNum.Name = "ordrNum";
-            this.ordrNum.Size = new System.Drawing.Size(108, 27);
+            this.ordrNum.Size = new System.Drawing.Size(0, 27);
             this.ordrNum.TabIndex = 15;
-            this.ordrNum.Text = "########";
             // 
             // label2
             // 
@@ -162,7 +158,7 @@
             this.Product,
             this.Price,
             this.Quantity});
-            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(98, 152);
             this.listView1.Margin = new System.Windows.Forms.Padding(4);
@@ -175,17 +171,17 @@
             // Product
             // 
             this.Product.Text = "Product";
-            this.Product.Width = 120;
+            this.Product.Width = 125;
             // 
             // Price
             // 
             this.Price.Text = "Price";
-            this.Price.Width = 137;
+            this.Price.Width = 90;
             // 
             // Quantity
             // 
             this.Quantity.Text = "Quantity";
-            this.Quantity.Width = 133;
+            this.Quantity.Width = 90;
             // 
             // label1
             // 

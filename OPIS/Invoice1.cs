@@ -21,6 +21,7 @@ namespace OPIS
     public partial class Invoice1 : Form
     {
         Order o;
+        Catalog c;
         Form1 start;
 
         /*
@@ -28,10 +29,11 @@ namespace OPIS
          * @param: o -> Order transferred from Payment1
          * @purpose: instantiate the customer's Order, initializes form
          */
-        public Invoice1(Order o, Form1 f)
+        public Invoice1(Order o, Catalog c, Form1 f)
         {
             InitializeComponent();
             this.o = o;
+            this.c = c;
             this.start = f;
 
             ordrNum.Text = Order.orderNumber;
@@ -52,9 +54,9 @@ namespace OPIS
         {
             o.setTotals();
 
-            label6.Text = "$" + Convert.ToString(o.subtotal);
-            label7.Text = "$" + Convert.ToString(o.tax);
-            label8.Text = "$" + Convert.ToString(o.total);
+            label6.Text = "$" + o.subtotal.ToString("F");
+            label7.Text = "$" + o.tax.ToString("F");
+            label8.Text = "$" + o.total.ToString("F");
         }
 
         /*
@@ -72,7 +74,7 @@ namespace OPIS
             foreach (Product p in products)
             {
                 ListViewItem i = new ListViewItem(p.name);
-                i.SubItems.Add(Convert.ToString(p.price));
+                i.SubItems.Add(p.price.ToString("F"));
                 i.SubItems.Add(Convert.ToString(p.orderQuantity));
                 listView1.Items.Add(i);
             }

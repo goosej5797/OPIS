@@ -19,6 +19,7 @@ namespace OPIS
     public partial class Payment1 : Form
     {
         public Order o;
+        public Catalog c;
         public Form1 start;
 
         /*
@@ -26,9 +27,10 @@ namespace OPIS
          * @param: o -> Order transferred from Form1
          * @purpose: instantiate the customer's Order
          */
-        public Payment1(Order o, Form1 f)
+        public Payment1(Order o, Catalog c, Form1 f)
         {
             this.o = o;
+            this.c = c;
             start = f;
             InitializeComponent();
         }
@@ -46,9 +48,9 @@ namespace OPIS
         {
             o.setTotals();
 
-            subAmt.Text = "$" + Convert.ToString(o.subtotal);
-            taxAmt.Text = "$" + Convert.ToString(o.tax);
-            ttl.Text = "$" + Convert.ToString(o.total);
+            subAmt.Text = "$" + o.subtotal.ToString("F");
+            taxAmt.Text = "$" + o.tax.ToString("F");
+            ttl.Text = "$" + o.total.ToString("F");
         }
 
         /*
@@ -96,21 +98,16 @@ namespace OPIS
             {
                 try
                 {
-                    long tender = Convert.ToInt64(input); //convert input to long...if exception thrown, invalid card entered!
+                    double change = o.payWithCard(input);
+                    Error.Visible = false;
+                    label6.Visible = true;
+                    chngDue.Visible = true;
+                    chngDue.Text = "$" + change.ToString("F");
 
-                    //ensures card number is of length 16
-                    if (input.Length == 16)
-                    {
-                        Error.Visible = false;
-                        label6.Visible = true;
-                        chngDue.Visible = true;
-                        chngDue.Text = "$0.00";
-
-                        Submit.Visible = false;
-                        button1.Enabled = false;
-                        button2.Enabled = false;
-                        Invoice.Visible = true;
-                    }
+                    Submit.Visible = false;
+                    button1.Enabled = false;
+                    button2.Enabled = false;
+                    Invoice.Visible = true;
                 }
                 catch
                 {
@@ -124,15 +121,15 @@ namespace OPIS
             {
                 try
                 {
-                    double tender = Convert.ToDouble(input); //convert input to double
+                    double change = o.payWithCash(input);
 
                     //ensures that tender given is greater than or equal to order total
-                    if (tender >= o.total)
+                    if (change >= 0)
                     {
                         Error.Visible = false;
                         label6.Visible = true;
                         chngDue.Visible = true;
-                        chngDue.Text = "$" + (tender - o.total);
+                        chngDue.Text = "$" + change.ToString("F");
 
                         Submit.Visible = false;
                         button1.Enabled = false;
@@ -152,9 +149,7 @@ namespace OPIS
                     Error.Text = "***Invalid Tender Entered!";
                     Error.Visible = true;
                 }
-  
             }
-
         }
 
         /*
@@ -163,7 +158,7 @@ namespace OPIS
          */
         private void Invoice_Click(object sender, EventArgs e)
         {
-            Invoice1 invoice = new Invoice1(o, start);
+            Invoice1 invoice = new Invoice1(o, c, start);
 
             // Show the invoice form
             invoice.Show();

@@ -85,8 +85,24 @@ namespace OPIS
                 if (orderProducts[x].name == item.name)
                 {
                     orderProducts.RemoveAt(x);
-                    item.orderQuantity = 1; //reset orderQuantity to 1
+                    item.orderQuantity = 0; //reset orderQuantity to 0
                 }
+            }
+        }
+
+        /*
+        * @method: decreaseQuantity()
+        * @param: item -> Product whose quantity is to be decreased by ONE
+        * @purpose: Decreases the selected Product's order quantity by ONE
+        */
+        public void decreaseQuantity(Product item)
+        {
+            item.orderQuantity--;
+
+            //if orderQuantity becomes ZERO, remove item from Order
+            if (item.orderQuantity == 0)
+            {
+                removeItem(item);
             }
         }
 
@@ -119,24 +135,65 @@ namespace OPIS
             return orderProducts;
         }
 
-        public void deleteOrder()
+        /*
+        * @method: payWithCash()
+        * @param input -> the contents of the textbox
+        * @purpose: Checks the validity of the customer's tender given (i.e. if 
+        *           the customer provided enough cash to cover the cost of the 
+        *           purchase). Then, the purchased is approved and the correct 
+        *           change is returned. Otherwise, an exception is thrown.
+        */
+        public double payWithCash(String input)
         {
+            double change = -1;
 
+            try
+            {
+                //convert input to double
+                double tender = Convert.ToDouble(input);
+
+                //ensures that tender given is greater than or equal to order total
+                if (tender >= total)
+                {
+                    change = tender - total;
+                }
+            }
+            catch (ArrayTypeMismatchException e)
+            {
+                throw;
+            }
+
+            return change;
         }
 
-        public void payWithCash()
+        /*
+        * @method: payWithCard()
+        * @param input -> the contents of the textbox
+        * @purpose: Checks the basic validity of the customer's credit card 
+        *           (i.e. if the card number consits of ONLY digits and is 16
+        *           characters long). Then, the credit card is approved and 
+        *           $0.00 is returned for change. Otherwise, an exception is thrown.
+        */
+        public double payWithCard(String input)
         {
+            double change = -9999;
+            try
+            {
+                //convert input to long...if exception thrown, invalid card entered!
+                long tender = Convert.ToInt64(input);
 
-        }
+                //ensures card number is of length 16
+                if (input.Length == 16)
+                {
+                    change = 0.0;
+                }
+            }
+            catch(ArrayTypeMismatchException e)
+            {
+                throw;
+            }
 
-        public void payWithCard()
-        {
-
-        }
-
-        public void viewReceipt()
-        {
-
+            return change;
         }
     }
 }

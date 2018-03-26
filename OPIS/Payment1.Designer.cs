@@ -52,9 +52,8 @@
             this.chngDue.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chngDue.Location = new System.Drawing.Point(555, 371);
             this.chngDue.Name = "chngDue";
-            this.chngDue.Size = new System.Drawing.Size(104, 29);
+            this.chngDue.Size = new System.Drawing.Size(0, 29);
             this.chngDue.TabIndex = 21;
-            this.chngDue.Text = "chngDue";
             this.chngDue.Visible = false;
             // 
             // ttl
@@ -63,9 +62,8 @@
             this.ttl.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ttl.Location = new System.Drawing.Point(250, 371);
             this.ttl.Name = "ttl";
-            this.ttl.Size = new System.Drawing.Size(33, 29);
+            this.ttl.Size = new System.Drawing.Size(0, 29);
             this.ttl.TabIndex = 20;
-            this.ttl.Text = "ttl";
             // 
             // taxAmt
             // 
@@ -73,9 +71,8 @@
             this.taxAmt.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.taxAmt.Location = new System.Drawing.Point(250, 334);
             this.taxAmt.Name = "taxAmt";
-            this.taxAmt.Size = new System.Drawing.Size(89, 29);
+            this.taxAmt.Size = new System.Drawing.Size(0, 29);
             this.taxAmt.TabIndex = 19;
-            this.taxAmt.Text = "taxAmt";
             // 
             // subAmt
             // 
@@ -83,9 +80,8 @@
             this.subAmt.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subAmt.Location = new System.Drawing.Point(250, 298);
             this.subAmt.Name = "subAmt";
-            this.subAmt.Size = new System.Drawing.Size(94, 29);
+            this.subAmt.Size = new System.Drawing.Size(0, 29);
             this.subAmt.TabIndex = 18;
-            this.subAmt.Text = "subAmt";
             // 
             // label6
             // 
@@ -168,9 +164,8 @@
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(141, 189);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 29);
+            this.label1.Size = new System.Drawing.Size(0, 29);
             this.label1.TabIndex = 22;
-            this.label1.Text = "AAAAA";
             this.label1.Visible = false;
             // 
             // textBox1

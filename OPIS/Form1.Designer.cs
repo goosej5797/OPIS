@@ -64,7 +64,7 @@
             this.Product,
             this.Price,
             this.Quantity});
-            this.listView1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
@@ -81,17 +81,17 @@
             // Product
             // 
             this.Product.Text = "Product";
-            this.Product.Width = 100;
+            this.Product.Width = 125;
             // 
             // Price
             // 
             this.Price.Text = "Price";
-            this.Price.Width = 70;
+            this.Price.Width = 90;
             // 
             // Quantity
             // 
             this.Quantity.Text = "Quantity";
-            this.Quantity.Width = 80;
+            this.Quantity.Width = 90;
             // 
             // flowLayoutPanel1
             // 
@@ -121,9 +121,8 @@
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(665, 389);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 22);
+            this.label2.Size = new System.Drawing.Size(0, 22);
             this.label2.TabIndex = 4;
-            this.label2.Text = "$$$$$";
             // 
             // label3
             // 
@@ -141,9 +140,8 @@
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(958, 389);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 22);
+            this.label4.Size = new System.Drawing.Size(0, 22);
             this.label4.TabIndex = 6;
-            this.label4.Text = "$$$$$";
             // 
             // label5
             // 
@@ -151,9 +149,8 @@
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(807, 389);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 22);
+            this.label5.Size = new System.Drawing.Size(0, 22);
             this.label5.TabIndex = 7;
-            this.label5.Text = "$$$$$";
             // 
             // label6
             // 
