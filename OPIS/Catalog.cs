@@ -30,7 +30,7 @@ namespace OPIS
          */
         public void buildCatalog()
         {
-            StreamReader scan = new StreamReader("C:\\Users\\Katie\\Documents\\OPIS\\OPIS\\items.txt");
+            StreamReader scan = new StreamReader("C:\\Users\\Taylor\\Desktop\\New folder\\OPIS\\items.txt");
             String[] substrings;
 
             String line = scan.ReadLine();
