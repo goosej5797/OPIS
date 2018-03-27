@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,34 @@ namespace OPIS
         //Catalog Constructor: generates the catalog
         public Catalog()
         {
-            buildCatalog();
+            try { 
+                buildCatalogDB();
+            }catch
+            {
+                buildCatalog();
+            }
+        }
+
+        public void buildCatalogDB()
+        {
+            string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\spart\\source\\repos\\OPIS2\\OPIS\\OPISDB.mdf;Integrated Security=True";
+            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlCommand myCommand = new SqlCommand("SELECT * FROM [Inventory]", conn))
+            {
+                conn.Open();
+                using (SqlDataReader myReader = myCommand.ExecuteReader())
+                {
+                    while (myReader.Read())
+                    {
+                        string name = myReader["Name"].ToString();
+                        string id = myReader["Id"].ToString();
+                        double cost = double.Parse(myReader["Price"].ToString());
+                        int quantity = int.Parse(myReader["Quantity"].ToString());
+                        products.Add(new Product(name, id, cost, quantity));
+                    }
+                    conn.Close();
+                }
+            }
         }
 
         /*
