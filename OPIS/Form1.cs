@@ -105,6 +105,9 @@ namespace OPIS
                 b.Text = p.name;
                 b.Name = p.name;
                 b.Size = new System.Drawing.Size(94, 76);
+                b.BackColor = Color.FromArgb(146, 76, 156);
+                b.ForeColor = Color.White;
+                b.Font = new Font("Times New Roman", 14);
                 b.Click += Btn_action; //Adds event handler
                 flowLayoutPanel1.Controls.Add(b);
             }

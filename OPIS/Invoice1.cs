@@ -84,6 +84,14 @@ namespace OPIS
         private void button1_Click(object sender, EventArgs e)
         {
             //UPDATE DATABASE WITH NEW QUANTITIES
+            StreamWriter sw = new StreamWriter("C:\\Users\\Katie\\Documents\\OPIS\\OPIS\\items.txt");
+            foreach(Product p in c.getAllProducts())
+            {
+                int qty = p.stockQuantity - p.orderQuantity;
+                sw.WriteLine(p.name + " " + p.itemNumber + " " + p.price + " " + qty);
+            }
+
+            sw.Close();
 
             start.ResetForm();
             start.Show();

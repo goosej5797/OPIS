@@ -49,6 +49,7 @@ namespace OPIS
                 line = scan.ReadLine();
             }
 
+            scan.Close();
         }
 
         /*
