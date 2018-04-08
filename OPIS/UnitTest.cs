@@ -26,5 +26,16 @@ namespace OPIS
             bool result = p.equals(new Product("T", "1000", 1.2, 10));
             Assert.IsFalse(result);
         }
+
+        [Test]
+        public void TestOrder_payWithCash_AssertTrue()
+        {
+            Order o = new Order();
+            
+            o.addItem(new Product("test", "0010", 1.25, 10));
+            o.setTotals();
+            bool t = (3.75 == o.payWithCash("5"));
+            Assert.IsTrue(t);  
+        }
     }
 }
