@@ -99,15 +99,25 @@ namespace OPIS
                 try
                 {
                     double change = o.payWithCard(input);
-                    Error.Visible = false;
-                    label6.Visible = true;
-                    chngDue.Visible = true;
-                    chngDue.Text = "$" + change.ToString("F");
+                    if(change == 0)
+                    {
+                        Error.Visible = false;
+                        label6.Visible = true;
+                        chngDue.Visible = true;
+                        chngDue.Text = "$" + change.ToString("F");
 
-                    Submit.Visible = false;
-                    button1.Enabled = false;
-                    button2.Enabled = false;
-                    Invoice.Visible = true;
+                        Submit.Visible = false;
+                        button1.Enabled = false;
+                        button2.Enabled = false;
+                        Invoice.Visible = true;
+                    }
+                    else
+                    {
+                        //if invalid card number entered, error displayed on user interface
+                        Error.Text = "****Invalid Card Entered!";
+                        Error.Visible = true;
+                    }
+
                 }
                 catch
                 {

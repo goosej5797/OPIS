@@ -50,6 +50,7 @@
             // 
             this.chngDue.AutoSize = true;
             this.chngDue.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chngDue.ForeColor = System.Drawing.Color.White;
             this.chngDue.Location = new System.Drawing.Point(555, 371);
             this.chngDue.Name = "chngDue";
             this.chngDue.Size = new System.Drawing.Size(0, 29);
@@ -60,6 +61,7 @@
             // 
             this.ttl.AutoSize = true;
             this.ttl.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ttl.ForeColor = System.Drawing.Color.White;
             this.ttl.Location = new System.Drawing.Point(250, 371);
             this.ttl.Name = "ttl";
             this.ttl.Size = new System.Drawing.Size(0, 29);
@@ -69,6 +71,7 @@
             // 
             this.taxAmt.AutoSize = true;
             this.taxAmt.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.taxAmt.ForeColor = System.Drawing.Color.White;
             this.taxAmt.Location = new System.Drawing.Point(250, 334);
             this.taxAmt.Name = "taxAmt";
             this.taxAmt.Size = new System.Drawing.Size(0, 29);
@@ -78,6 +81,7 @@
             // 
             this.subAmt.AutoSize = true;
             this.subAmt.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subAmt.ForeColor = System.Drawing.Color.White;
             this.subAmt.Location = new System.Drawing.Point(250, 298);
             this.subAmt.Name = "subAmt";
             this.subAmt.Size = new System.Drawing.Size(0, 29);
@@ -87,6 +91,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(399, 371);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 29);
@@ -98,6 +103,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(103, 371);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 29);
@@ -108,6 +114,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(103, 298);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 29);
@@ -118,6 +125,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(103, 334);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 29);
@@ -126,24 +134,28 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(76)))), ((int)(((byte)(156)))));
             this.button2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(404, 99);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(404, 123);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(276, 49);
             this.button2.TabIndex = 13;
             this.button2.Text = "Cash";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(76)))), ((int)(((byte)(156)))));
             this.button1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(108, 99);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(108, 123);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(276, 49);
             this.button1.TabIndex = 12;
             this.button1.Text = "Credit/Debit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
@@ -151,7 +163,8 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(268, 25);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(271, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(247, 39);
             this.label2.TabIndex = 11;
@@ -162,6 +175,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(141, 189);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 29);
@@ -170,46 +184,51 @@
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(404, 189);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(276, 22);
+            this.textBox1.Size = new System.Drawing.Size(276, 30);
             this.textBox1.TabIndex = 23;
             this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Submit
             // 
+            this.Submit.BackColor = System.Drawing.Color.DarkMagenta;
             this.Submit.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Submit.Location = new System.Drawing.Point(553, 237);
+            this.Submit.ForeColor = System.Drawing.Color.White;
+            this.Submit.Location = new System.Drawing.Point(553, 278);
             this.Submit.Name = "Submit";
-            this.Submit.Size = new System.Drawing.Size(127, 40);
+            this.Submit.Size = new System.Drawing.Size(127, 49);
             this.Submit.TabIndex = 24;
             this.Submit.Text = "Submit";
-            this.Submit.UseVisualStyleBackColor = true;
+            this.Submit.UseVisualStyleBackColor = false;
             this.Submit.Visible = false;
             this.Submit.Click += new System.EventHandler(this.Submit_Click);
             // 
             // Error
             // 
             this.Error.AutoSize = true;
-            this.Error.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Error.ForeColor = System.Drawing.Color.Red;
-            this.Error.Location = new System.Drawing.Point(512, 218);
+            this.Error.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Error.ForeColor = System.Drawing.Color.DeepPink;
+            this.Error.Location = new System.Drawing.Point(472, 238);
             this.Error.Name = "Error";
-            this.Error.Size = new System.Drawing.Size(38, 16);
+            this.Error.Size = new System.Drawing.Size(46, 19);
             this.Error.TabIndex = 25;
             this.Error.Text = "Error";
             this.Error.Visible = false;
             // 
             // Invoice
             // 
+            this.Invoice.BackColor = System.Drawing.Color.DarkMagenta;
             this.Invoice.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Invoice.Location = new System.Drawing.Point(553, 425);
+            this.Invoice.ForeColor = System.Drawing.Color.White;
+            this.Invoice.Location = new System.Drawing.Point(553, 419);
             this.Invoice.Name = "Invoice";
-            this.Invoice.Size = new System.Drawing.Size(127, 40);
+            this.Invoice.Size = new System.Drawing.Size(127, 48);
             this.Invoice.TabIndex = 26;
             this.Invoice.Text = "Invoice";
-            this.Invoice.UseVisualStyleBackColor = true;
+            this.Invoice.UseVisualStyleBackColor = false;
             this.Invoice.Visible = false;
             this.Invoice.Click += new System.EventHandler(this.Invoice_Click);
             // 
@@ -217,6 +236,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(9)))), ((int)(((byte)(119)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 489);
             this.Controls.Add(this.Invoice);
             this.Controls.Add(this.Error);
