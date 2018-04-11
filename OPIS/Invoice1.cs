@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -83,20 +84,75 @@ namespace OPIS
         //NEW TRANSACTION
         private void button1_Click(object sender, EventArgs e)
         {
-            //UPDATE DATABASE WITH NEW QUANTITIES
-            StreamWriter sw = new StreamWriter("C:\\Users\\Katie\\Documents\\OPIS\\OPIS\\items.txt");
-            foreach(Product p in c.getAllProducts())
+            updateTextFileTotals();
+            updateDBTotals();
+            addReceiptToDB();
+            start.ResetForm();
+            start.Show();
+
+            this.Close();
+        }
+
+        private void addReceiptToDB()
+        {
+            string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\spart\\source\\repos\\OPIS2\\OPIS\\OPISData.mdf;Integrated Security=True";
+            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlCommand comm = new SqlCommand("AddReceipt", conn))
+            {
+                conn.Open();
+                comm.CommandType = CommandType.StoredProcedure;
+                string content = "";
+                double cost = o.total;
+                foreach(Product p in o.getEntireOrder())
+                {
+                    content += p.itemNumber;
+                    content += "I";
+                    content += p.price;
+                    content += "I";
+                    content += (p.orderQuantity);
+                    content += "X";
+                }
+                comm.Parameters.AddWithValue("@contents", content);
+                comm.Parameters.AddWithValue("@cost", o.total);
+                comm.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+
+        private void updateDBTotals()
+        {
+            string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\spart\\source\\repos\\OPIS2\\OPIS\\OPISData.mdf;Integrated Security=True";
+            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlCommand comm = new SqlCommand("EditAmount", conn))
+            {
+                conn.Open();
+                comm.CommandType = CommandType.StoredProcedure;
+                foreach (Product p in c.getAllProducts())
+                {
+                    comm.Parameters.Clear();
+                    if (p.orderQuantity != 0)
+                    {
+                        int amt = p.stockQuantity - p.orderQuantity;
+                        comm.Parameters.AddWithValue("@amount", amt);
+                        comm.Parameters.AddWithValue("@id", p.itemNumber);
+                        comm.ExecuteNonQuery();
+                    }
+                }
+                conn.Close();
+            }
+        }
+
+        private void updateTextFileTotals()
+        {
+            //UPDATE TEXT FILE WITH NEW QUANTITIES
+            StreamWriter sw = new StreamWriter("C:\\Users\\spart\\Documents\\OPIS\\inventory.txt");
+            foreach (Product p in c.getAllProducts())
             {
                 int qty = p.stockQuantity - p.orderQuantity;
                 sw.WriteLine(p.name + " " + p.itemNumber + " " + p.price + " " + qty);
             }
 
             sw.Close();
-
-            start.ResetForm();
-            start.Show();
-
-            this.Close();
         }
     }
 }

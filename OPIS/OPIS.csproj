@@ -129,12 +129,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="items.txt" />
-    <Content Include="OPISDB.mdf">
+    <Content Include="OPISData.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="OPISDB_log.ldf">
-      <DependentUpon>OPISDB.mdf</DependentUpon>
+    <Content Include="OPISData_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>OPISData.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
