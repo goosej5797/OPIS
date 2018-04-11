@@ -31,7 +31,7 @@ namespace OPIS
 
         public void buildCatalogDB()
         {
-            string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\spart\\source\\repos\\OPIS2\\OPIS\\OPISDB.mdf;Integrated Security=True";
+            string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\spart\\source\\repos\\OPIS2\\OPIS\\OPISData.mdf;Integrated Security=True";
             using (SqlConnection conn = new SqlConnection(connString))
             using (SqlCommand myCommand = new SqlCommand("SELECT * FROM [Inventory]", conn))
             {
@@ -58,7 +58,7 @@ namespace OPIS
          */
         public void buildCatalog()
         {
-            StreamReader scan = new StreamReader("C:\\Users\\Katie\\Documents\\OPIS\\OPIS\\items.txt");
+            StreamReader scan = new StreamReader("C:\\Users\\spart\\Documents\\OPIS\\inventory.txt");
             String[] substrings;
 
             String line = scan.ReadLine();
